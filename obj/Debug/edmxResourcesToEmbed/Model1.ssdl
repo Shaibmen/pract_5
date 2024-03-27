@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище FarmDatabaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Animals">
+    <Key>
+      <PropertyRef Name="AnimalID" />
+    </Key>
+    <Property Name="AnimalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Species" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Farm_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Role_iD" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Position" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Farm_id" Type="int" Nullable="false" />
+    <Property Name="Role_iD" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Expenses">
+    <Key>
+      <PropertyRef Name="ExpenseID" />
+    </Key>
+    <Property Name="ExpenseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExpenseType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Farm_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Farm">
+    <Key>
+      <PropertyRef Name="FarmID" />
+    </Key>
+    <Property Name="FarmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FarmName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_id" Type="int" Nullable="false" />
+    <Property Name="Product_id" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="InventoryID" />
+    </Key>
+    <Property Name="InventoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_id" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Farm_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginData">
+    <Key>
+      <PropertyRef Name="LoginDataID" />
+    </Key>
+    <Property Name="LoginDataID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Role_id" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_id" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Farm_id" Type="int" Nullable="false" />
+    <Property Name="Customer_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CostProduct" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Warehouse_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplies">
+    <Key>
+      <PropertyRef Name="SupplyID" />
+    </Key>
+    <Property Name="SupplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_id" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Farm_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+    </Key>
+    <Property Name="WarehouseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WarehouseName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Farm_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Animals__Farm_id__4CA06362">
+    <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+    <End Role="Animals" Type="Self.Animals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="FarmID" />
+      </Principal>
+      <Dependent Role="Animals">
+        <PropertyRef Name="Farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customers__Role___440B1D61">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="Role_iD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employees__Farm___3E52440B">
+    <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="FarmID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employees__Role___3F466844">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Role_iD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Expenses__Farm_i__6383C8BA">
+    <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+    <End Role="Expenses" Type="Self.Expenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="FarmID" />
+      </Principal>
+      <Dependent Role="Expenses">
+        <PropertyRef Name="Farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Custom__6FE99F9F">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="Customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Produc__70DDC3D8">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventory__Farm___60A75C0F">
+    <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="FarmID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="Farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventory__Produ__5FB337D6">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginData__Custo__49C3F6B7">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="LoginData" Type="Self.LoginData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="LoginData">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginData__Emplo__48CFD27E">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="LoginData" Type="Self.LoginData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="LoginData">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginData__Role___47DBAE45">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="LoginData" Type="Self.LoginData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="LoginData">
+        <PropertyRef Name="Role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Customer__59063A47">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Farm_id__5812160E">
+    <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="FarmID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Product___571DF1D5">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__Wareho__5441852A">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="WarehouseID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Warehouse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplies__Farm_i__5CD6CB2B">
+    <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+    <End Role="Supplies" Type="Self.Supplies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="FarmID" />
+      </Principal>
+      <Dependent Role="Supplies">
+        <PropertyRef Name="Farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplies__Produc__5BE2A6F2">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Supplies" Type="Self.Supplies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Supplies">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Warehouse__Farm___5165187F">
+    <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="FarmID" />
+      </Principal>
+      <Dependent Role="Warehouse">
+        <PropertyRef Name="Farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище FarmDatabaseModelContainer">
+    <EntitySet Name="Animals" EntityType="Self.Animals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expenses" EntityType="Self.Expenses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Farm" EntityType="Self.Farm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginData" EntityType="Self.LoginData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplies" EntityType="Self.Supplies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Animals__Farm_id__4CA06362" Association="Self.FK__Animals__Farm_id__4CA06362">
+      <End Role="Farm" EntitySet="Farm" />
+      <End Role="Animals" EntitySet="Animals" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customers__Role___440B1D61" Association="Self.FK__Customers__Role___440B1D61">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employees__Farm___3E52440B" Association="Self.FK__Employees__Farm___3E52440B">
+      <End Role="Farm" EntitySet="Farm" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employees__Role___3F466844" Association="Self.FK__Employees__Role___3F466844">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Expenses__Farm_i__6383C8BA" Association="Self.FK__Expenses__Farm_i__6383C8BA">
+      <End Role="Farm" EntitySet="Farm" />
+      <End Role="Expenses" EntitySet="Expenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Custom__6FE99F9F" Association="Self.FK__Feedback__Custom__6FE99F9F">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Feedback" EntitySet="Feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Produc__70DDC3D8" Association="Self.FK__Feedback__Produc__70DDC3D8">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Feedback" EntitySet="Feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventory__Farm___60A75C0F" Association="Self.FK__Inventory__Farm___60A75C0F">
+      <End Role="Farm" EntitySet="Farm" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventory__Produ__5FB337D6" Association="Self.FK__Inventory__Produ__5FB337D6">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginData__Custo__49C3F6B7" Association="Self.FK__LoginData__Custo__49C3F6B7">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="LoginData" EntitySet="LoginData" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginData__Emplo__48CFD27E" Association="Self.FK__LoginData__Emplo__48CFD27E">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="LoginData" EntitySet="LoginData" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginData__Role___47DBAE45" Association="Self.FK__LoginData__Role___47DBAE45">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="LoginData" EntitySet="LoginData" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Customer__59063A47" Association="Self.FK__Orders__Customer__59063A47">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Farm_id__5812160E" Association="Self.FK__Orders__Farm_id__5812160E">
+      <End Role="Farm" EntitySet="Farm" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Product___571DF1D5" Association="Self.FK__Orders__Product___571DF1D5">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__Wareho__5441852A" Association="Self.FK__Products__Wareho__5441852A">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplies__Farm_i__5CD6CB2B" Association="Self.FK__Supplies__Farm_i__5CD6CB2B">
+      <End Role="Farm" EntitySet="Farm" />
+      <End Role="Supplies" EntitySet="Supplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplies__Produc__5BE2A6F2" Association="Self.FK__Supplies__Produc__5BE2A6F2">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Supplies" EntitySet="Supplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Warehouse__Farm___5165187F" Association="Self.FK__Warehouse__Farm___5165187F">
+      <End Role="Farm" EntitySet="Farm" />
+      <End Role="Warehouse" EntitySet="Warehouse" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5193a84a9bcc4c07bd53ac27849a3e15" Name="Diagram1">
+        <EntityTypeShape EntityType="FarmDatabaseModel.Animals" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Customers" Width="1.5" PointX="8.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Employees" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Expenses" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Farm" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Feedback" Width="1.5" PointX="7.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Inventory" Width="1.5" PointX="7.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.LoginData" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Orders" Width="1.5" PointX="10.5" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Products" Width="1.5" PointX="5.25" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Roles" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Supplies" Width="1.5" PointX="7.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmDatabaseModel.Warehouse" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Animals__Farm_id__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Customers__Role___440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Feedback__Custom__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Orders__Customer__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Employees__Farm___3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Employees__Role___3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Expenses__Farm_i__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Inventory__Farm___5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Orders__Farm_id__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Supplies__Farm_i__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Warehouse__Farm___4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Feedback__Produc__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Inventory__Produ__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__LoginData__Role___66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Orders__Product___5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Products__Wareho__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__Supplies__Produc__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__LoginData__Custo__49C3F6B7" />
+        <AssociationConnector Association="FarmDatabaseModel.FK__LoginData__Emplo__48CFD27E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

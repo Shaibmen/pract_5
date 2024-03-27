@@ -1,0 +1,52 @@
+﻿<Page x:Class="ControlLaba.DataLoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ControlLaba"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DataLoginPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="DataLoginGrid" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="2" IsReadOnly="True" SelectedIndex="0" SelectionChanged="DataLogin_SelectionChanged" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Login" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+                <DataGridTextColumn Header="RoleName" Binding="{Binding Roles.RoleName}"/>
+                <DataGridTextColumn Header="Employee" Binding="{Binding Employees.LastName}"/>
+                <DataGridTextColumn Header="Customer" Binding="{Binding Customers.LastName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox  Grid.Row="1" Grid.Column="3" FontSize="15" TextAlignment="Center" Text="Данные для заполнения" IsEnabled="False" VerticalAlignment="Bottom"/>
+        <StackPanel Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" >
+            <TextBox x:Name="NameRole" Text="Название роли" MaxLength="50" TextChanged="NameRole_TextChanged"/>
+            <TextBox x:Name="PasswordRole" Text="Пароль для роли" MaxLength="50" TextChanged="PasswordRole_TextChanged"/>
+            <ComboBox x:Name="RoleIDBox" SelectionChanged="RoleIdBox_SelectionChanged"/>
+            <ComboBox x:Name="EmployeeBox" SelectionChanged="EmployeeBox_SelectionChanged"/>
+            <ComboBox x:Name="CustomerBox" SelectionChanged="CustomerBox_SelectionChanged"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button Content="Очиcтить Работников" Click="ClearEmp_Click"/>
+            <Button Content="Очитсить Посетителей" Click="ClearCust_Click"/>
+
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button Content="Добавить" Click="Insert_Click"/>
+            <Button Content="Изменить" Click="Update_Click"/>
+            <Button Content="Удалить" Click="Delete_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
